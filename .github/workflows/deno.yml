@@ -1,0 +1,85 @@
+name: Deno CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  find-dirs:
+    runs-on: ubuntu-latest
+    outputs:
+      dirs: ${{ steps.find.outputs.dirs }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find Deno directories
+        id: find
+        run: |
+          DIRS=$(find . -name "deno.json" -type f | xargs dirname | sort | uniq | jq -R -s 'split("\n") | map(select(. != ""))')
+          echo "dirs<<EOF" >> $GITHUB_OUTPUT
+          echo "$DIRS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+  fmt:
+    needs: find-dirs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: ${{ fromJSON(needs.find-dirs.outputs.dirs) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.x
+      - run: deno fmt --check
+
+  lint:
+    needs: find-dirs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: ${{ fromJSON(needs.find-dirs.outputs.dirs) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.x
+      - run: deno lint
+
+  check:
+    needs: find-dirs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: ${{ fromJSON(needs.find-dirs.outputs.dirs) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.x
+      - run: deno check
+
+  run:
+    needs: find-dirs
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: ${{ fromJSON(needs.find-dirs.outputs.dirs) }}
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v2.x
+      - run: deno task run

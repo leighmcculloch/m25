@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "default": {
+      "env": true,
+      "net": ["mainnet.sorobanrpc.com:443"]
+    }
+  },
+  "tasks": {
+    "run": "deno run --frozen=true --permission-set main.js",
+    "dev": "deno run --frozen=true --permission-set --watch main.js"
+  },
+  "imports": {
+    "@stellar/stellar-sdk": "npm:@stellar/stellar-sdk@^14.1.1"
+  }
+}

@@ -1,0 +1,11 @@
+[package]
+name = "soroban-env"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+soroban-env-host = { version = "23.0.1", features = ["testutils", "recording_mode"] }
+soroban-env-common = { version = "23.0.1", features = ["testutils"] }
+hex = { version = "0.4.3" }
+stellar-xdr = { version = "23.0.0", features = ["serde"] }
+serde_json = { version = "1.0.145" }

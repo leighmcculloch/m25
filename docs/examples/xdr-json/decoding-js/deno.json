@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-read --watch main.ts",
+    "run": "deno run --allow-read main.ts"
+  },
+  "imports": {
+    "@stellar/stellar-xdr-json": "npm:@stellar/stellar-xdr-json"
+  }
+}

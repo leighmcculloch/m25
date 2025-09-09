@@ -1,0 +1,8 @@
+[package]
+name = "extracting-specs-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+soroban-spec = "23.0.2"
+stellar-xdr = "23.0.0"

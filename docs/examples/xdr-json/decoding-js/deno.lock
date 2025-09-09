@@ -1,0 +1,44 @@
+{
+  "version": "5",
+  "specifiers": {
+    "npm:@playwright/mcp@*": "0.0.38",
+    "npm:@stellar/stellar-xdr-json@*": "23.0.0"
+  },
+  "npm": {
+    "@playwright/mcp@0.0.38": {
+      "integrity": "sha512-6Y/QQ2Ng71toOMRftEofVK5h91RwQ8V75p1u/3NJexBqmNOzg+VPJmLRk4hVLrmGnYynpVCK7caFiGB1WnR/Tw==",
+      "dependencies": [
+        "playwright",
+        "playwright-core"
+      ],
+      "bin": true
+    },
+    "@stellar/stellar-xdr-json@23.0.0": {
+      "integrity": "sha512-0jxWuaSZY5VfogL9YMPhjxBM7a3jwTQfSCzFUy0lkSoPrl5cNxhzx854+iidNY2Xu3pFB8x61XZ1wJapu7OHMA=="
+    },
+    "fsevents@2.3.2": {
+      "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==",
+      "os": ["darwin"],
+      "scripts": true
+    },
+    "playwright-core@1.56.0-alpha-2025-09-18": {
+      "integrity": "sha512-Uah9BolKRWGmQYBx4qlo6iwdQymHFfx2yM8KS2PrJln7/SYzgem3vfJCcKJ0toGG0H7TvaazcOxkImvebC8Tjg==",
+      "bin": true
+    },
+    "playwright@1.56.0-alpha-2025-09-18": {
+      "integrity": "sha512-rvZ5liplc1VWzOuk6WnxiYpb5IIfgyvtMuviy/hT4iaRo3aneRUZeIa2Bk4axIQ+PckEC12Q8pHh3yKtl+Z/2g==",
+      "dependencies": [
+        "playwright-core"
+      ],
+      "optionalDependencies": [
+        "fsevents"
+      ],
+      "bin": true
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:@stellar/stellar-xdr-json@*"
+    ]
+  }
+}
