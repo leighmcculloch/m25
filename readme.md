@@ -15,4 +15,4 @@
 
 ### watch the talk
 
-https://youtu.be/DR0z3lTwv70
+- https://youtu.be/DR0z3lTwv70
