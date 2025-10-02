@@ -12,3 +12,7 @@
 - [contract spec](docs/examples/contract-spec)
 - [soroban env](docs/examples/soroban-env)
 - [xdr-json](docs/examples/xdr-json)
+
+### watch the talk
+
+https://youtu.be/DR0z3lTwv70
