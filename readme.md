@@ -15,8 +15,8 @@
 
 ### watch the talk
 
-- https://youtu.be/DR0z3lTwv70
+- [youtube](https://youtu.be/DR0z3lTwv70)
 
 ### ask questions
 
-- https://discord.gg/stellardev
+- [discord](https://discord.gg/stellardev)
